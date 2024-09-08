@@ -50,7 +50,7 @@ document.getElementById('AC').addEventListener('click', function() {
 })
 
 document.getElementById('deci').addEventListener('click', function() {
-	handleFloat('.');
+	handleFloat();
 })
 
 function handleClear() {
@@ -62,18 +62,23 @@ function handleClear() {
 function handleOperator(chara) {
 	console.log(chara)
 	length_1 = textbox_data.length
-	operand_1 = parseInt(textbox_data);
+	operand_1 = parseFloat(textbox_data);
 	operater = chara
 	textbox_data = textbox_data + chara;
 	updateTextbox();
 }
 
-function handleFloat() { }
+function handleFloat() {
+	textbox_data = textbox_data + '.'
+	console.log(textbox_data)
+	updateTextbox();
+}
+
 
 function handleOperands() {
 	console.log(length_1)
 	var test = textbox_data.slice(length_1 + 1)
-	operand_2 = parseInt(test)
+	operand_2 = parseFloat(test)
 	console.log(test)
 	handleCalculation();
 }
