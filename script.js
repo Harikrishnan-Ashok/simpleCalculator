@@ -15,9 +15,7 @@ function updateTextbox() {
 
 function handleNumbers(num) {
 	flag && handleClear();
-	console.log(num);
 	textbox_data = textbox_data + num
-	console.log(textbox_data)
 	updateTextbox()
 }
 
@@ -60,7 +58,6 @@ function handleClear() {
 }
 
 function handleOperator(chara) {
-	console.log(chara)
 	length_1 = textbox_data.length
 	operand_1 = parseFloat(textbox_data);
 	operater = chara
@@ -70,16 +67,13 @@ function handleOperator(chara) {
 
 function handleFloat() {
 	textbox_data = textbox_data + '.'
-	console.log(textbox_data)
 	updateTextbox();
 }
 
 
 function handleOperands() {
-	console.log(length_1)
 	var test = textbox_data.slice(length_1 + 1)
 	operand_2 = parseFloat(test)
-	console.log(test)
 	handleCalculation();
 }
 
