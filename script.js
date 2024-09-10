@@ -20,23 +20,23 @@ function handleNumbers(num) {
 }
 
 document.getElementById('mult').addEventListener('click', function() {
-	handleOperator('*');
+	handleNumbers('*');
 })
 
 document.getElementById('div').addEventListener('click', function() {
-	handleOperator('/');
+	handleNumbers('/');
 })
 
 document.getElementById('sub').addEventListener('click', function() {
-	handleOperator('-');
+	handleNumbers('-');
 })
 
 document.getElementById('add').addEventListener('click', function() {
-	handleOperator('+');
+	handleNumbers('+');
 })
 
 document.getElementById('mod').addEventListener('click', function() {
-	handleOperator('%');
+	handleNumbers('%');
 })
 
 document.getElementById('eql').addEventListener('click', function() {
@@ -48,7 +48,7 @@ document.getElementById('AC').addEventListener('click', function() {
 })
 
 document.getElementById('deci').addEventListener('click', function() {
-	handleFloat();
+	handleNumbers('.');
 })
 
 function handleClear() {
@@ -56,20 +56,6 @@ function handleClear() {
 	textbox_data = "";
 	updateTextbox();
 }
-
-function handleOperator(chara) {
-	length_1 = textbox_data.length
-	operand_1 = parseFloat(textbox_data);
-	operater = chara
-	textbox_data = textbox_data + chara;
-	updateTextbox();
-}
-
-function handleFloat() {
-	textbox_data = textbox_data + '.'
-	updateTextbox();
-}
-
 
 function handleOperands() {
 	var test = textbox_data.slice(length_1 + 1)
@@ -79,21 +65,6 @@ function handleOperands() {
 
 function handleCalculation() {
 	flag = true
-	switch (operater) {
-		case '/': textbox_data = (operand_1 / operand_2)
-			break;
-
-		case '*': textbox_data = (operand_1 * operand_2)
-			break;
-
-		case '+': textbox_data = (operand_1 + operand_2)
-			break;
-
-		case '-': textbox_data = (operand_1 - operand_2)
-			break;
-
-		case '%': textbox_data = (operand_1 % operand_2)
-			break;
-	}
+	textbox_data = eval(textbox_data);
 	updateTextbox()
 }
